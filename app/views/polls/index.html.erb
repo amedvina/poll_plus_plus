@@ -1,0 +1,11 @@
+<h1>Polls</h1>
+
+<ul>
+  <% @polls.each do |poll| %>
+    <li>
+      <%= link_to poll.title, poll %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Poll", new_poll_path %>
