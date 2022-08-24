@@ -9,6 +9,7 @@ class PollsController < ApplicationController
 
   def new
     @poll = Poll.new
+    4.times { @poll.candidates.build }
   end
 
   def create
@@ -44,6 +45,6 @@ class PollsController < ApplicationController
 
   private
     def poll_params
-      params.require(:poll).permit(:title, :start_time, :end_time)
+      params.require(:poll).permit(:title, :start_time, :end_time, candidates_attributes: [:title, :id])
     end
 end

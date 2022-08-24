@@ -23,14 +23,11 @@
     <% end %>
   </div>  
 
-   <div>
-    <%= form.label :candidates %><br>
-    <%= form.text_field :candidates %>
-    <% @poll.errors.full_messages_for(:candidates).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div> 
-  
+  <%= form.fields_for :candidates do |candidate_field| %>
+    <%= candidate_field.label :title %>
+    <%= candidate_field.text_field :title %>
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>

@@ -4,6 +4,12 @@
 
 <h1><%= @poll.end_time %></h1>
 
+<% @poll.candidates.each do |candidate| %>
+  <p>
+    <strong>Candidates:</strong>
+    <%= candidate.title %>
+  </p>
+<% end %>
 <ul>
   <li><%= link_to "Edit", edit_poll_path(@poll) %></li>
   <li><%= link_to "Destroy", poll_path(@poll), data: {
