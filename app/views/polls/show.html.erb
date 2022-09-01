@@ -4,12 +4,19 @@
 
 <h1><%= @poll.end_time %></h1>
 
-<% @poll.candidates.each do |candidate| %>
-  <p>
-    <strong>Candidates:</strong>
-    <%= candidate.title %>
-  </p>
+
+<%= form_for @new_vote do |form| %>
+  <%= form.collection_radio_buttons :candidate_id, @poll.candidates, :id, :title_with_count, {}, required: true %>
+
+  <%=form.submit %>
 <% end %>
+
+<%= simple_format("winner is:") %>
+
+<% @poll.winning_candidates.each do |candidate| %>
+  <h2><%= candidate.title %> got <%= candidate.calculate_result %> votes</h2>
+<% end %>
+
 <ul>
   <li><%= link_to "Edit", edit_poll_path(@poll) %></li>
   <li><%= link_to "Destroy", poll_path(@poll), data: {

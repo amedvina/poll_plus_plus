@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_18_090313) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_092045) do
   create_table "candidates", force: :cascade do |t|
     t.string "title"
     t.integer "poll_id", null: false
@@ -27,5 +27,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_090313) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "candidate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_votes_on_candidate_id"
+  end
+
   add_foreign_key "candidates", "polls"
+  add_foreign_key "votes", "candidates"
 end
