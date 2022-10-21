@@ -69,4 +69,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  source "https://rubygems.org"
+  gem "rspec"
 end
