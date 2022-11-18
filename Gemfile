@@ -63,6 +63,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'pry', '~> 0.13.1'
+
 end
 
 group :test do
@@ -75,4 +77,7 @@ group :test do
 
   source "https://rubygems.org"
   gem "rspec"
+
+  gem "factory_bot_rails"
+
 end
