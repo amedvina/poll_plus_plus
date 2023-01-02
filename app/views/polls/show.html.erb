@@ -11,17 +11,17 @@
   <%=form.submit %>
 <% end %>
 
-<%= simple_format("winner is:") %>
+<%= simple_format("Winner are:") %>
 
-<% @poll.winning_candidates.each do |candidate| %>
-  <h2><%= candidate.title %> got <%= candidate.calculate_result %> votes</h2>
+<% @result.winning_candidates.each do |candidate| %>
+  <h5><%= candidate.title %> with <%= candidate.candidate_votes %> votes</h5>
 <% end %>
 
 <ul>
   <li><%= link_to "Edit", edit_poll_path(@poll) %></li>
   <li><%= link_to "Destroy", poll_path(@poll), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
 </ul>
 </ul>

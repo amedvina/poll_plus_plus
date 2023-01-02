@@ -1,11 +1,12 @@
 class PollsController < ApplicationController
   def index
     @polls = Poll.all
-    end
+  end
 
   def show
     @poll = Poll.find(params[:id])
     @new_vote = Vote.new
+    @result = Polls::Result.new(@poll)
   end
 
   def new

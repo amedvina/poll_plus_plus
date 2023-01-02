@@ -5,11 +5,11 @@ RSpec.describe Candidate, type: :model do
     it { should validate_presence_of(:title) }
     it { should have_many(:votes).dependent(:destroy) }
 
-    describe "#calculate_result" do
+    describe "#candidate_votes" do
         let(:poll) { Poll.create!(title: "Poll", start_time: "2022-09-29T16:31", end_time: "2022-09-29T14:34") }
         let(:candidate_one) { Candidate.create!(title: "Candidate one", poll: poll) }
 
-        subject { candidate_one.calculate_result }
+        subject { candidate_one.candidate_votes }
 
         context "when candidate has votes" do
             let!(:vote1) { Vote.create!(candidate: candidate_one) }

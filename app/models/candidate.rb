@@ -3,11 +3,11 @@ class Candidate < ApplicationRecord
   has_many :votes, dependent: :destroy
   validates :title, presence: true
 
-  def calculate_result
+  def candidate_votes
     votes.count
   end
 
   def title_with_count
-    "#{title} (#{calculate_result})" 
+    "#{title} (#{candidate_votes})" 
   end
 end
