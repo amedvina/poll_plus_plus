@@ -4,6 +4,7 @@
 
 <h1><%= @poll.end_time %></h1>
 
+<h5><%= "author is: #{ @author.username }" %></h5>
 
 <%= form_for @new_vote do |form| %>
   <%= form.collection_radio_buttons :candidate_id, @poll.candidates, :id, :title_with_count, {}, required: true %>
@@ -13,8 +14,8 @@
 
 <%= simple_format("Winner are:") %>
 
-<% @result.winning_candidates.each do |candidate| %>
-  <h5><%= candidate.title %> with <%= candidate.candidate_votes %> votes</h5>
+<% @final_result.each do |candidate| %>
+  <h5><%= candidate.title %></h5>
 <% end %>
 
 <ul>

@@ -5,9 +5,9 @@ RSpec.describe Poll, type: :model do
 	it { should have_many(:candidates).dependent(:destroy) }
 	it { should accept_nested_attributes_for(:candidates) }
 
-	describe "#winning_candidates with factories" do
+	describe "#final_result with factories" do
 
-		subject { poll.winning_candidates }
+		subject { poll.final_result }
 
 		context "when there is a winner" do
 			let(:poll) { create(:poll, :with_candidates_and_no_votes) } 

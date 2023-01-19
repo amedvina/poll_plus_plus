@@ -4,7 +4,7 @@ module Polls
       @poll = poll
     end
 
-		def winning_candidates
+		def final_result
       max_value = @poll.candidates.map(&:candidate_votes).max
       return [] if max_value.nil?
       

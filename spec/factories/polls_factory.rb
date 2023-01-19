@@ -1,6 +1,7 @@
 FactoryBot.define do
 	factory :poll do
 		title { 'Poll' }
+		author { user }
 		start_time  { '2022-09-29T16:31' }
 		end_time { "2022-09-29T14:34" }
 	end

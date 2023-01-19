@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe Polls::Result, type: :model do
 	let(:result) { Polls::Result.new(poll) }
 
-	describe "#winning_candidates" do
-		subject { result.winning_candidates }
+	describe "#final_result" do
+		subject { result.final_result }
 		
 		context "when there is a winner" do
 			let(:poll) { create(:poll, :with_candidates_and_no_votes) } 
