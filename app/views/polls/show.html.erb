@@ -1,0 +1,28 @@
+<h1><%= @poll.title %></h1>
+
+<h1><%= @poll.start_time %></h1>
+
+<h1><%= @poll.end_time %></h1>
+
+<h5><%= "author is: #{ @author.username }" %></h5>
+
+<%= form_for @new_vote do |form| %>
+  <%= form.collection_radio_buttons :candidate_id, @poll.candidates, :id, :title_with_count, {}, required: true %>
+
+  <%=form.submit %>
+<% end %>
+
+<%= simple_format("Winner are:") %>
+
+<% @final_result.each do |candidate| %>
+  <h5><%= candidate.title %></h5>
+<% end %>
+
+<ul>
+  <li><%= link_to "Edit", edit_poll_path(@poll) %></li>
+  <li><%= link_to "Destroy", poll_path(@poll), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
+</ul>
+</ul>

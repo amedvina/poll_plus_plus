@@ -19,7 +19,9 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-# gem "turbo-rails"
+
+# gem "turbo-rails" turbo is its own huge topic that we will deal with later - Mike
+
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -34,7 +36,7 @@ gem "jbuilder"
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -62,6 +64,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'pry', '~> 0.13.1'
+
 end
 
 group :test do
@@ -69,4 +74,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  
+  gem 'shoulda-matchers', '~> 5.0'
+
+  source "https://rubygems.org"
+  gem "rspec"
+
+  gem "factory_bot_rails"
+
 end
