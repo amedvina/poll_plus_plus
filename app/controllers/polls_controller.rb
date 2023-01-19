@@ -8,7 +8,7 @@ class PollsController < ApplicationController
     @new_vote = Vote.new
     @author = @poll.author
     @result = Polls::Result.new(@poll)
-    @winning_candidates = @result.winning_candidates
+    @final_result = @result.final_result
   end
 
   def new
