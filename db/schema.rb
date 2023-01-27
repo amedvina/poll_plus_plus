@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_18_214923) do
-  create_table "authors", force: :cascade do |t|
-    t.string "author"
-    t.integer "poll_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["poll_id"], name: "index_authors_on_poll_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_102025) do
   create_table "candidates", force: :cascade do |t|
     t.string "title"
     t.integer "poll_id", null: false
@@ -33,7 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_214923) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "author"
+    t.integer "author_id", null: false
+    t.index ["author_id"], name: "index_polls_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_214923) do
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
   end
 
-  add_foreign_key "authors", "polls"
   add_foreign_key "candidates", "polls"
+  add_foreign_key "polls", "users", column: "author_id"
   add_foreign_key "votes", "candidates"
 end
