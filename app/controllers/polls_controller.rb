@@ -6,7 +6,7 @@ class PollsController < ApplicationController
   def show
     @poll = Poll.find(params[:id])
     @new_vote = Vote.new
-    @author = @poll.author
+    @author = @poll.author_id
     @result = Polls::Result.new(@poll)
     @final_result = @result.final_result
   end
@@ -18,8 +18,8 @@ class PollsController < ApplicationController
 
   def create
     @poll = Poll.new(poll_params)
-    @poll.author = Current.user
-
+    @poll.author_id = Current.user.id
+    
     if @poll.save
       redirect_to @poll
     else
@@ -50,6 +50,6 @@ class PollsController < ApplicationController
 
   private
     def poll_params
-      params.require(:poll).permit(:title, :start_time, :end_time, :author, candidates_attributes: [:title, :id, :vote])
+      params.require(:poll).permit(:title, :start_time, :end_time, candidates_attributes: [:title, :id, :vote])
     end
 end
