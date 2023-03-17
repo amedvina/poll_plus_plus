@@ -1,5 +1,5 @@
 FactoryBot.define do
 	factory :vote do
-    association :candidate
+		association :candidate
 	end
 end 
