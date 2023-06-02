@@ -49,7 +49,7 @@ class PollsController < ApplicationController
   end
 
   private
-    def poll_params
-      params.require(:poll).permit(:title, :start_time, :end_time, candidates_attributes: [:title, :id, :vote])
-    end
+  def poll_params
+    params.require(:poll).permit(:title, :start_time, :end_time, candidates_attributes: [:title, :id, :vote])
+  end
 end

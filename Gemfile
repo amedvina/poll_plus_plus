@@ -20,7 +20,7 @@ gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 
-# gem "turbo-rails" turbo is its own huge topic that we will deal with later - Mike
+gem "turbo-rails"
 
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]

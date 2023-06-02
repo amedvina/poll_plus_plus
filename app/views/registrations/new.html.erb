@@ -1,14 +1,21 @@
-<h1>Sign Up</h1>
+<div class="form-header">
+  <h1>Poll++</h1>
+</div>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
-  <%= render "shared/form_errors", form: form %>
-
+<div class="form-card">
+  <h2>Sign up</h2>
+  <%= form_with model: @user, url: sign_up_path do |form| %>
     <%= form.label :username %>
-    <%= form.text_field :username, class: "form-control", placeholder: "test" %>
-    <%= form.label :password %>
-    <%= form.password_field :password, class: "form-control", placeholder: "password" %>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
+    <%= form.text_field :username, class: "form-field", placeholder: "test" %>
 
-    <%= form.submit "Sign Up", class: "btn btn-primary" %>
-<% end %>
+    <%= form.label :password %>
+    <%= form.password_field :password, class: "form-field", placeholder: "password" %>
+
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "form-field", placeholder: "password" %>
+
+    <div class="submit-button-container">
+      <%= form.submit "Sign Up" %>
+    </div>
+  <% end %>
+</div>

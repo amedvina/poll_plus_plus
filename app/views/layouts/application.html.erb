@@ -11,7 +11,13 @@
   </head>
 
   <body>
-    <%= render partial: "shared/flash" %>
-    <%= yield %>
+    <% unless current_page?(sign_up_path) || current_page?(sign_in_path) %>
+      <%= render partial: 'shared/navigation' %>
+    <% end %>
+
+    <main>
+      <%= render partial: "shared/flash" %>
+      <%= yield %>
+    </main>
   </body>
 </html>

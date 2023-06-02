@@ -1,26 +1,26 @@
-<h1><%= @poll.title %></h1>
+<div data-controller="results">
+  <h2><%= @poll.title %></h2>
 
-<h1><%= @poll.start_time %></h1>
+  <% @poll.candidates.each do |candidate| %>
+    <%= form_for(@new_vote, data: { results_target: "pollForm" }) do |form| %>
+      <%= form.hidden_field :candidate_id, value: candidate.id %>
+      <%= button_tag(candidate.title_with_count, type: "submit", data: { action: "click->results#updateFinalResult", results_target: "candidateButton", candidate_id: candidate.id})%>
+    <% end %>
+  <% end %>
 
-<h1><%= @poll.end_time %></h1>
+  <div data-results-target="finalResult">
+    <%= simple_format("Winner is:") %>
 
-<%= form_for @new_vote do |form| %>
-  <%= form.collection_radio_buttons :candidate_id, @poll.candidates, :id, :title_with_count, {}, required: true %>
+    <% @final_result.each do |candidate| %>
+      <h5><%= candidate.title %></h5>
+    <% end %>
+  </div>
 
-  <%=form.submit %>
-<% end %>
-
-<%= simple_format("Winner are:") %>
-
-<% @final_result.each do |candidate| %>
-  <h5><%= candidate.title %></h5>
-<% end %>
-
-<ul>
-  <li><%= link_to "Edit", edit_poll_path(@poll) %></li>
-  <li><%= link_to "Destroy", poll_path(@poll), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
-</ul>
+  <ul>
+    <li><%= link_to "Edit", edit_poll_path(@poll) %></li>
+    <li><%= link_to "Destroy", poll_path(@poll), data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %></li>
+  </ul>
+</div>

@@ -1,11 +1,18 @@
-<h1>Sign In</h1>
+<div class="sign-header">
+  <h1>Poll++</h1>
+</div>
 
-<%= form_with url: sign_in_path do |form| %>
+<div class="sign-card">
+  <h2>Sign In</h1>
+  <%= form_with url: sign_in_path do |form| %>
     <%= form.label :username %>
-    <%= form.text_field :username, class: "form-control", placeholder: "test" %>
+    <%= form.text_field :username, class: "sign-field", placeholder: "test" %>
 
     <%= form.label :password %>
-    <%= form.password_field :password, class: "form-control", placeholder: "password" %>
+    <%= form.password_field :password, class: "sign-field", placeholder: "password" %>
 
-    <%= form.submit "Sign In", class: "btn btn-primary" %>
-<% end %>
+    <div class="sign-submit-button-container">
+      <%= form.submit "Sign In", class: "sign-submit-button"%>
+    </div>
+  <% end %>
+</div>
