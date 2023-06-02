@@ -1,0 +1,28 @@
+.polls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.polls-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.polls-list-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.poll-form-link {
+  background-color: #3a3a3b;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 50px;
+}

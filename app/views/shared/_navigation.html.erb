@@ -1,0 +1,15 @@
+<nav class="nav-main">
+  <a class="nav-main__branding" href="<%= root_path %>">Poll++</a>
+
+  <ul class="nav-main__links">
+    <li class="nav-main__link-item"><%= link_to "Home", root_path %></li>
+    <li class="nav-main__link-item"><%= link_to "Polls", polls_path %></li>
+    <li class="nav-main__link-item nav-main__link-item--active"><%= link_to "About us", "#" %></li>
+    <li class="nav-main__link-item"><%= link_to "Contact us", "#" %></li>
+  </ul>
+  
+  <span class="nav-main__signed-in-as">
+    <%= Current.user.username %>
+    <%= link_to "Logout", logout_path, class: "nav-main__logout" %>
+  </span>
+</nav>
