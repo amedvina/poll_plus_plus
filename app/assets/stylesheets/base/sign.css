@@ -1,0 +1,43 @@
+.sign-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.sign-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: 300px;
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.sign-submit-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.sign-submit-button {
+  background-color: #3a3a3b;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.sign-field {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+}
