@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class ResultsController extends Controller {
-  static targets = ["pollForm", "finalResult", "candidateButton"];
+  static targets = ["finalResult"];
 
   async updateFinalResult(event) {
     event.preventDefault();
@@ -21,6 +21,8 @@ export default class ResultsController extends Controller {
       })
       const data = await response.json();
       event.target.innerHTML = data.candidate.title_with_count;
+      this.finalResultTarget.innerHTML = data.final_result.winners;
+
     } catch (error) {
       console.log("error", error);
     }

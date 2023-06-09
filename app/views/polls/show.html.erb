@@ -8,12 +8,13 @@
     <% end %>
   <% end %>
 
-  <div data-results-target="finalResult">
-    <%= simple_format("Winner is:") %>
-
-    <% @final_result.each do |candidate| %>
-      <h5><%= candidate.title %></h5>
-    <% end %>
+  <div>
+    <p>
+      Winner is:
+      <strong data-results-target="finalResult">
+        <%= @final_result.map(&:title).join(", ") %>
+      </strong>
+    </p>
   </div>
 
   <ul>

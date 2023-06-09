@@ -10,5 +10,11 @@ module Polls
       
       @poll.candidates.select { |element| element.candidate_votes == max_value }
     end
+
+    def as_json(options = nil)
+      {
+        winners: final_result.map { |candidate| candidate.title }.join(", ")
+      }
+    end
   end
 end
