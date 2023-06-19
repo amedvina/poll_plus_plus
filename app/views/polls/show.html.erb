@@ -1,17 +1,17 @@
-<div data-controller="results">
+<div>
   <h2><%= @poll.title %></h2>
 
-  <% @poll.candidates.each do |candidate| %>
-    <%= form_for(@new_vote, data: { results_target: "pollForm" }) do |form| %>
-      <%= form.hidden_field :candidate_id, value: candidate.id %>
-      <%= button_tag(candidate.title_with_count, type: "submit", data: { action: "click->results#updateFinalResult", results_target: "candidateButton", candidate_id: candidate.id})%>
+  <div id="result">
+    <% @poll.candidates.each do |candidate| %>
+      <%= form_for(@new_vote) do |form| %>
+        <%= form.hidden_field :candidate_id, value: candidate.id %>
+        <%= button_tag(candidate.title_with_count, type: "submit", id: dom_id(candidate, "title_with_count")) %>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <div>
     <p>
       Winner is:
-      <strong data-results-target="finalResult">
+      <strong id="final-result">
         <%= @final_result.map(&:title).join(", ") %>
       </strong>
     </p>

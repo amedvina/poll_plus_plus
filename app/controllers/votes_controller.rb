@@ -10,11 +10,11 @@ class VotesController < ApplicationController
 
     @poll = @vote.candidate.poll
     @result = Polls::Result.new(@poll)
-    # @final_result = @result.final_result
+    @final_result = @result.final_result
 
     respond_to do |format|
       format.html { redirect_to poll_path(@vote.candidate.poll) }
-      format.json { render json: { candidate: @vote.candidate, final_result: @result } }
+      format.turbo_stream
     end
   end
 

@@ -9,11 +9,6 @@ class PollsController < ApplicationController
     @author = @poll.author_id
     @result = Polls::Result.new(@poll)
     @final_result = @result.final_result
-
-    respond_to do |format|
-      format.html { }
-      format.json { render json: { final_result: @final_result } }
-    end
   end
 
   def new

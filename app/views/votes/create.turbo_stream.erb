@@ -1,0 +1,11 @@
+<turbo-stream action="update" target="<%= dom_id(@vote.candidate, "title_with_count")%>">
+  <template>
+    <%= @vote.candidate.title_with_count %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="update" target="final-result">
+    <template>
+      <%= @final_result.map(&:title).join(", ") %>
+    </template>
+</turbo-stream>

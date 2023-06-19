@@ -1,0 +1,10 @@
+{
+  "name": "poll_plus_plus",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "@hotwired/turbo": "^7.3.0",
+    "@hotwired/turbo-rails": "^7.3.0",
+    "shared": "^0.2.0"
+  }
+}

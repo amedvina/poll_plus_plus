@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdcbd391-039f-456e-a609-7c4d6e5e00b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/javascript/controllers/results_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/votes/create.turbo_stream.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/poll_plus_plus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/poll_plus_plus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/polls_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/polls_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/votes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/votes_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/candidate.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/candidate.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/polls/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/polls/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/polls/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/polls/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/polls/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/polls/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/polls/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/polls/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/results_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/controllers/results_controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/polls/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/polls/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/registrations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="ERB File" />
+        <option value="package.json" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -76,8 +72,9 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;results-stimulus-controller&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;results-stimulus-controller-turbo-frame&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/edvinaambrozeviciute/code/poll_plus_plus&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -86,11 +83,13 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
     &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/votes" />
       <recent name="$PROJECT_DIR$/app/javascript/controllers" />
     </key>
   </component>
@@ -104,7 +103,7 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
@@ -127,7 +126,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
@@ -153,7 +152,7 @@
         <env name="RAILS_ENV" value="test" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov">
         <COVERAGE_PATTERN ENABLED="true">
           <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
         </COVERAGE_PATTERN>
@@ -181,6 +180,7 @@
       <workItem from="1682606307011" duration="13738000" />
       <workItem from="1684481339525" duration="14771000" />
       <workItem from="1685540042879" duration="66000" />
+      <workItem from="1687172773876" duration="4804000" />
     </task>
     <servers />
   </component>
