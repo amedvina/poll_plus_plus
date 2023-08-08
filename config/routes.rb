@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :polls
 
   resources :votes, only: [:create]
+
+  resources :posts
 end
