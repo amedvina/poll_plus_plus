@@ -1,0 +1,6 @@
+<h1><%= @post.title %></h1>
+  <%= rendered_content(@post.content) %>
+<hr/>
+
+<%= render template: "comments/new" %>
+<%= render partial: "comments/index", locals: { commentable: @commentable } %>

@@ -1,0 +1,11 @@
+<%= form_for [@commentable, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+    <% @comment.errors.each do |error| %>
+      <%= error.full_message %>
+    <% end %>
+  <% end %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

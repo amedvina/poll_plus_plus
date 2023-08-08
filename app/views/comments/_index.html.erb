@@ -1,0 +1,10 @@
+Comments:
+<% commentable.comments.includes(:author).each do |comment| %>
+  <%= button_to "Destroy", polymorphic_path([@commentable, comment]), method: :delete %>
+  <% if policy(comment).update? %>
+    <%= link_to "Edit", edit_polymorphic_path([@commentable, comment]) %>
+  <% end %>
+  <%= simple_format(comment.content) %>
+
+  <%= comment.author.username %>
+<% end %>
