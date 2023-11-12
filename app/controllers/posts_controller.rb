@@ -6,6 +6,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @commentable = @post
+    @comment = Comment.new
   end
 
   def new
@@ -14,9 +16,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    puts "look here"
-    puts "#{post_params}"
 
     if @post.save
       redirect_to @post, notice: "Post was successfully created."

@@ -4,7 +4,7 @@ class Candidate < ApplicationRecord
   validates :title, presence: true
 
   def candidate_votes
-    votes.count
+    votes.size
   end
 
   def title_with_count

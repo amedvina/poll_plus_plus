@@ -23,4 +23,6 @@
     turbo_confirm: "Are you sure?"
   } %></li>
 </ul>
-</ul>
+
+<%= render template: "comments/new" %>
+<%= render partial: "comments/index", locals: {commentable: @commentable} %>

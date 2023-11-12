@@ -10,9 +10,13 @@ Rails.application.routes.draw do
 
   root "polls#index"
 
-  resources :polls
+  resources :polls do
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   resources :votes, only: [:create]
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+  end
 end

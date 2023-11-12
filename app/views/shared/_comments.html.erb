@@ -1,0 +1,15 @@
+<ul>
+  <% commentable.comments.each do |comment| %>
+    <li><%= comment.content %></li>
+  <% end %>
+</ul>
+
+<%= form_with(model: @comment, url: path, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :content, "Add a Comment" %>
+    <%= form.text_area :content, rows: 4 %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Submit Comment" %>
+  </div>
+<% end %>

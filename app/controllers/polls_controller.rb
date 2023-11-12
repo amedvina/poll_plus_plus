@@ -4,11 +4,13 @@ class PollsController < ApplicationController
   end
 
   def show
-    @poll = Poll.find(params[:id])
+    @poll = Poll.includes(candidates: :votes).find(params[:id])
     @new_vote = Vote.new
     @author = @poll.author_id
     @result = Polls::Result.new(@poll)
     @final_result = @result.final_result
+    @commentable = @poll
+    @comment = Comment.new
   end
 
   def new
@@ -49,7 +51,8 @@ class PollsController < ApplicationController
   end
 
   private
-    def poll_params
-      params.require(:poll).permit(:title, :start_time, :end_time, candidates_attributes: [:title, :id, :vote])
-    end
+
+  def poll_params
+    params.require(:poll).permit(:title, :start_time, :end_time, candidates_attributes: [:title, :id, :vote])
+  end
 end
