@@ -1,11 +1,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.4"
+ruby "3.2.2"
 
 gem 'redcarpet'
 
 gem 'kramdown'
+
+gem 'sidekiq'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
@@ -69,8 +71,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'rspec-rails', '~> 6.0.0'
-  gem 'pry', '~> 0.13.1'
-
+  gem 'pry', '~> 0.14.2'
 end
 
 group :test do

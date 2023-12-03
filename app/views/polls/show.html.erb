@@ -12,8 +12,12 @@
 
 <%= simple_format("Winner are:") %>
 
-<% @final_result.each do |candidate| %>
-  <h5><%= candidate.title %></h5>
+<% if @final_result.present? %>
+  <% @final_result.each do |winner| %>
+    <h5><%= @poll.candidates.find(winner.candidate_id).title %></h5>
+  <% end %>
+<% else %>
+  <p>No result available yet.</p>
 <% end %>
 
 <ul>
@@ -22,5 +26,4 @@
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
   } %></li>
-</ul>
 </ul>
