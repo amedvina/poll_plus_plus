@@ -1,20 +1,27 @@
 <h1><%= @poll.title %></h1>
-
 <h1><%= @poll.start_time %></h1>
-
 <h1><%= @poll.end_time %></h1>
 
 <%= form_for @new_vote do |form| %>
   <%= form.collection_radio_buttons :candidate_id, @poll.candidates, :id, :title_with_count, {}, required: true %>
-
-  <%=form.submit %>
+  <%= form.submit %>
 <% end %>
 
 <%= simple_format("Winner are:") %>
 
-<% @final_result.each do |candidate| %>
-  <h5><%= candidate.title %></h5>
-<% end %>
+<%# if @poll.processed? %>
+  <%# if @final_result.present? %>
+    <%# @final_result.each do |winner| %>
+<!--      <h5><%#= @poll.candidates.find(winner.candidate_id).title %></h5>-->
+    <%# end %>
+  <%# else %>
+<!--    <p>No result available yet.</p>-->
+  <%# end %>
+<%# else %>
+  <div data-controller="poll-results">
+    <p>Result calculation not yet finished</p>
+  </div>
+<%# end %>
 
 <ul>
   <li><%= link_to "Edit", edit_poll_path(@poll) %></li>
@@ -22,5 +29,4 @@
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
   } %></li>
-</ul>
 </ul>

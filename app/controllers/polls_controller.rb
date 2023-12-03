@@ -7,8 +7,21 @@ class PollsController < ApplicationController
     @poll = Poll.find(params[:id])
     @new_vote = Vote.new
     @author = @poll.author_id
-    @result = Polls::Result.new(@poll)
-    @final_result = @result.final_result
+
+    @final_result = @poll.poll_winners
+
+    # respond_to do |format|
+    #   format.html
+    #
+    #   format.turbo_stream do
+    #     render turbo_stream: turbo_stream.update(
+    #       "poll-results-frame",
+    #       partial: "winners_list",
+    #       locals: { poll: @poll, winners: @poll.poll_winners }
+    #     )
+    #     format.turbo_stream { render partial: "results" }
+    #   end
+    # end
   end
 
   def new
@@ -19,8 +32,10 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(poll_params)
     @poll.author_id = Current.user.id
-    
+
     if @poll.save
+      ProcessPollJob.perform_later(@poll.id)
+
       redirect_to @poll
     else
       render :new, status: :unprocessable_entity
@@ -46,6 +61,13 @@ class PollsController < ApplicationController
     @poll.destroy
 
     redirect_to root_path, status: :see_other
+  end
+
+  def completion_status
+    @poll_id = params[:id].to_i
+    @poll = Poll.find(@poll_id)
+    @completed = @poll.processed
+    render json: { completed: @completed }
   end
 
   private

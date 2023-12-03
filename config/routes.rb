@@ -10,9 +10,13 @@ Rails.application.routes.draw do
 
   root "polls#index"
 
+  get "poll_winners/complete"
+
   resources :polls
 
   resources :votes, only: [:create]
 
   resources :posts
+
+  get "polls/:id/completion_status", to: "polls#completion_status"
 end

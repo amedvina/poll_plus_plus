@@ -73,6 +73,12 @@ GEM
     bootsnap (1.12.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cable_ready (5.0.3)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      thread-local (>= 1.1.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -85,6 +91,7 @@ GEM
     childprocess (4.1.0)
     coderay (1.1.3)
     concurrent-ruby (1.1.10)
+    connection_pool (2.4.1)
     crass (1.0.6)
     debug (1.6.0)
       irb (>= 1.3.6)
@@ -121,6 +128,7 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.5)
     minitest (5.16.2)
     msgpack (1.5.3)
     net-imap (0.2.3)
@@ -138,12 +146,11 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.6-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
+    nokogiri (1.13.6)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     pg (1.4.6)
-    pry (0.13.1)
+    pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.7)
@@ -185,6 +192,9 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     redcarpet (3.6.0)
+    redis (4.8.1)
+    redis-client (0.18.0)
+      connection_pool
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -218,6 +228,11 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (5.2.0)
       activesupport (>= 5.2.0)
+    sidekiq (7.2.0)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -229,7 +244,12 @@ GEM
       railties (>= 6.0.0)
     strscan (3.0.3)
     thor (1.2.1)
+    thread-local (1.1.0)
     timeout (0.3.0)
+    turbo-rails (1.5.0)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     web-console (4.2.0)
@@ -252,11 +272,13 @@ GEM
 PLATFORMS
   x86_64-darwin-21
   x86_64-darwin-22
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
+  cable_ready (~> 5.0)
   capybara
   debug
   factory_bot_rails
@@ -264,23 +286,26 @@ DEPENDENCIES
   jbuilder
   kramdown
   pg
-  pry (~> 0.13.1)
+  pry (~> 0.14.2)
   puma (~> 5.0)
   rails (~> 7.0.3)
   rails-controller-testing
   redcarpet
+  redis (~> 4.0)
   rspec
   rspec-rails (~> 6.0.0)
   selenium-webdriver
   shoulda-matchers (~> 5.0)
+  sidekiq
   sprockets-rails
   stimulus-rails
+  turbo-rails
   tzinfo-data
   web-console
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.4p223
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.3.7

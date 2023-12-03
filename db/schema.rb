@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_134903) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_26_123929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "candidates", force: :cascade do |t|
     t.string "title"
-    t.integer "poll_id", null: false
+    t.bigint "poll_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["poll_id"], name: "index_candidates_on_poll_id"
+  end
+
+  create_table "poll_winners", force: :cascade do |t|
+    t.bigint "poll_id"
+    t.bigint "candidate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_poll_winners_on_candidate_id"
+    t.index ["poll_id"], name: "index_poll_winners_on_poll_id"
   end
 
   create_table "polls", force: :cascade do |t|
@@ -29,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_134903) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id", null: false
+    t.boolean "processed"
     t.index ["author_id"], name: "index_polls_on_author_id"
   end
 
@@ -49,13 +59,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_134903) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "candidate_id", null: false
+    t.bigint "candidate_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
   end
 
   add_foreign_key "candidates", "polls"
+  add_foreign_key "poll_winners", "candidates"
+  add_foreign_key "poll_winners", "polls"
   add_foreign_key "polls", "users", column: "author_id"
   add_foreign_key "posts", "users", column: "author_id"
   add_foreign_key "votes", "candidates"

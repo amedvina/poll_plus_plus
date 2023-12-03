@@ -1,11 +1,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.4"
+ruby "3.2.2"
 
 gem 'redcarpet'
 
 gem 'kramdown'
+
+gem 'sidekiq'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
@@ -24,8 +26,7 @@ gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 
-# gem "turbo-rails" turbo is its own huge topic that we will deal with later - Mike
-
+gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -34,7 +35,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -69,8 +70,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'rspec-rails', '~> 6.0.0'
-  gem 'pry', '~> 0.13.1'
-
+  gem 'pry', '~> 0.14.2'
 end
 
 group :test do
@@ -89,3 +89,5 @@ group :test do
   gem 'rails-controller-testing'
 
 end
+
+gem "cable_ready", "~> 5.0"
