@@ -73,6 +73,12 @@ GEM
     bootsnap (1.12.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cable_ready (5.0.3)
+      actionpack (>= 5.2)
+      actionview (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      thread-local (>= 1.1.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -186,6 +192,7 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     redcarpet (3.6.0)
+    redis (4.8.1)
     redis-client (0.18.0)
       connection_pool
     regexp_parser (2.5.0)
@@ -237,7 +244,12 @@ GEM
       railties (>= 6.0.0)
     strscan (3.0.3)
     thor (1.2.1)
+    thread-local (1.1.0)
     timeout (0.3.0)
+    turbo-rails (1.5.0)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     web-console (4.2.0)
@@ -260,11 +272,13 @@ GEM
 PLATFORMS
   x86_64-darwin-21
   x86_64-darwin-22
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
+  cable_ready (~> 5.0)
   capybara
   debug
   factory_bot_rails
@@ -277,6 +291,7 @@ DEPENDENCIES
   rails (~> 7.0.3)
   rails-controller-testing
   redcarpet
+  redis (~> 4.0)
   rspec
   rspec-rails (~> 6.0.0)
   selenium-webdriver
@@ -284,6 +299,7 @@ DEPENDENCIES
   sidekiq
   sprockets-rails
   stimulus-rails
+  turbo-rails
   tzinfo-data
   web-console
   webdrivers

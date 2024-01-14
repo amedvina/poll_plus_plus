@@ -1,0 +1,3 @@
+<%= turbo_stream.update "poll-results-frame" do %>
+  <%= render partial: "winners_list", locals: { poll: @poll, winners: @poll.poll_winners } %>
+<% end %>

@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :votes, only: [:create]
 
   resources :posts
+
+  get "polls/:id/completion_status", to: "polls#completion_status"
 end
