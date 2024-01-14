@@ -9,6 +9,19 @@ class PollsController < ApplicationController
     @author = @poll.author_id
 
     @final_result = @poll.poll_winners
+
+    # respond_to do |format|
+    #   format.html
+    #
+    #   format.turbo_stream do
+    #     render turbo_stream: turbo_stream.update(
+    #       "poll-results-frame",
+    #       partial: "winners_list",
+    #       locals: { poll: @poll, winners: @poll.poll_winners }
+    #     )
+    #     format.turbo_stream { render partial: "results" }
+    #   end
+    # end
   end
 
   def new
@@ -48,6 +61,13 @@ class PollsController < ApplicationController
     @poll.destroy
 
     redirect_to root_path, status: :see_other
+  end
+
+  def completion_status
+    @poll_id = params[:id].to_i
+    @poll = Poll.find(@poll_id)
+    @completed = @poll.processed
+    render json: { completed: @completed }
   end
 
   private
