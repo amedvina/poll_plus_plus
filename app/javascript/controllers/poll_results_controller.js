@@ -6,31 +6,30 @@ export default class extends Controller {
   connect() {
     console.log("connected");
 
-    this.startPollProcessing();
+    this.startPollResultProcess();
   }
 
-  startPollProcessing() {
-    this.pollInterval = setInterval(() => {
+  startPollResultProcess() {
+    this.pollInterval = setTimeout(() => {
       this.checkPollStatus();
     }, 1000);
   }
 
-  stopPollProcessing() {
-    clearInterval(this.pollInterval);
+  stopPollResultProcess() {
+    clearTimeout(this.pollInterval);
   }
 
   checkPollStatus() {
-    const isPollProcessed = this.data.get("pollProcessed");
+    const pollId = this.data.get("pollId");
+    fetch(`/polls/${pollId}.json`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.is_processed === true) {
+        // location.reload();
 
-    if (isPollProcessed) {
-      console.log("Is Active: true");
-
-      this.stopPollProcessing();
-      location.reload();
-    }
-  }
-
-  disconnect() {
-    this.stopPolling();
+        Turbo.visit(location.href, { action: 'replace', target: 'poll_final_result' });
+        this.stopPollResultProcess();
+      }
+    });
   }
 }

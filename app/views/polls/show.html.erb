@@ -18,9 +18,11 @@
     <p>No result available yet.</p>
   <% end %>
 <% else %>
-  <div data-controller="poll-results" data-poll-results-target="processedResults" data-poll-results-poll-processed="<%= @poll.processed %>" data-poll-results-final-result="<%= @final_result %>">
-    <p>Result calculation not yet finished</p>
-  </div>
+  <turbo-frame id="poll_final_result">
+    <div data-controller="poll-results" data-poll-results-target="processedResults" data-poll-results-poll-id="<%= @poll.id %>">
+      <p>Result calculation not yet finished</p>
+    </div>
+  </turbo-frame>
 <% end %>
 
 <ul>

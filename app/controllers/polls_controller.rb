@@ -10,18 +10,10 @@ class PollsController < ApplicationController
 
     @final_result = @poll.poll_winners
 
-    # respond_to do |format|
-    #   format.html
-    #
-    #   format.turbo_stream do
-    #     render turbo_stream: turbo_stream.update(
-    #       "poll-results-frame",
-    #       partial: "winners_list",
-    #       locals: { poll: @poll, winners: @poll.poll_winners }
-    #     )
-    #     format.turbo_stream { render partial: "results" }
-    #   end
-    # end
+    respond_to do |format|
+      format.html
+      format.json  { render json: { is_processed: @poll.processed } }
+    end
   end
 
   def new
