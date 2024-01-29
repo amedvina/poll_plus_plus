@@ -15,6 +15,8 @@ class ProcessResultJob < ApplicationJob
       poll.poll_winners.create(candidate: winner)
     end
 
+    sleep(6)
+
     poll.update(processed: true)
   end
 end
