@@ -15,6 +15,9 @@ class ProcessResultJob < ApplicationJob
       poll.poll_winners.create(candidate: winner)
     end
 
-    poll.update(processed: true)
+    sleep(6)
+
+    poll.update_attribute(:processed, true)
+    ActionCable.server.broadcast("poll_channel", { processed: poll.processed })
   end
 end

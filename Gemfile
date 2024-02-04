@@ -89,5 +89,3 @@ group :test do
   gem 'rails-controller-testing'
 
 end
-
-gem "cable_ready", "~> 5.0"
